@@ -70,7 +70,7 @@ async function newUser(request, response) {
     if (!body.password)
         return response.status(400).json({ message: "Missing password field" });
 
-    const passHash = crypto.createHash("sha256")
+    const passHash = crypto.createHash("sha512")
         .update(body.password)
         .digest();
 
@@ -165,6 +165,26 @@ async function deleteUser(request, response) {
     }
 }
 
+async function authorizationMiddleware(request, response, next) {
+    const base64Auth = (request.header("Authorization") || "").split(" ")[1] || "";
+    const strAuth = new Buffer(base64Auth, "base64").toString();
+    
+    const [_, login, password] = strAuth.match(/(.*?):(.*)/) || []
+
+    // Todo implement auth here.
+
+    try {
+        const user = await User.findOne({ username: login });
+
+        if (user !== null) {
+            return next();
+        }
+    } catch (error) {
+
+    }
+}
+
+router.use("/", authorizationMiddleware)
 router.get("/", getFinance);
 router.patch("/", editEmail),
 router.delete("/", deleteUser);
