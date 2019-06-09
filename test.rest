@@ -7,9 +7,9 @@ POST http://localhost:5000/api/user/new
 Content-Type: application/json
 
 {
-    "username": "tagptroll1",
-    "email": "tagp@galehuset.org",
-    "password": "thomas1996" 
+    "username": "bobman1",
+    "email": "bob@hotmail.org",
+    "password": "bob123" 
 }
 
 ###
