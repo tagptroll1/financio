@@ -1,0 +1,18 @@
+GET http://localhost:5000/api/user
+Authorization: dGFncHRyb2xsMTp0aG9tYXMxOTk2
+
+###
+
+POST http://localhost:5000/api/user/new
+Content-Type: application/json
+
+{
+    "username": "tagptroll1",
+    "email": "tagp@galehuset.org",
+    "password": "thomas1996" 
+}
+
+###
+
+DELETE http://localhost:5000/api/user
+Authorization: dGFncHRyb2xsMTp0aG9tYXMxOTk2
