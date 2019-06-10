@@ -1,7 +1,10 @@
 # Financio
+A web application used to store, monitor and visualize income and expenses.
+
+
 ## Endpoints
 
-### /api/user
+### `/api/user`
 #### GET
     Gets a user from the system with user information and finance data.  The GET requests requires authorization through the `Authorization` header with username:password or email:password encoded in base64.
 
@@ -92,7 +95,7 @@
     ```
     This is to recreate the account incase of accidental deletion.
 
-### /api/user/new
+### `/api/user/new`
 #### POST
     Creates a new user account in the system
     This new account will have a finance field set to null by default.
