@@ -18,13 +18,13 @@ Returns an JSON of shape
 ```json
 {
     "message": "A message about the request, usually OK",
-    user: {
+    "user": {
         "username": "bobman1",
-        "email": "bob@hotmail.com,
-        "joinedDate": Date,
-        "lastActive": Date,
+        "email": "bob@hotmail.com",
+        "joinedDate": "Date",
+        "lastActive": "Date",
         "finance": {
-            ...
+            "..."
         } 
     }
 }
@@ -85,10 +85,10 @@ Returns a JSON of shape
     "user": {
         "email": "bob@hotmail.com",
         "username": "bobman1",
-        "joinedAt": Date,
-        "lastactive": Date,
+        "joinedAt": "Date",
+        "lastactive": "Date",
         "finance": {
-            ...
+            "..."
         }
     }
 }
@@ -128,8 +128,8 @@ Returns a JSON of shape
     "user": {
         "email": "bob@hotmail.com",
         "username": "bobman1",
-        "joinedAt": Date,
-        "lastActive": "Date,
+        "joinedAt": "Date",
+        "lastActive": "Date",
         "finance": null
     }
 }
