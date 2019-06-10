@@ -80,7 +80,7 @@ DELETE http://localhost:5000/api/user
 Authorization: YWRtaW46YWRtaW4K
 
 {
-    username: "bobman1"
+    "username": "bobman1"
 }
 ```
 
