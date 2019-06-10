@@ -1,3 +1,5 @@
+![financio logo](financio.png)
+
 # Financio
 A web application used to store, monitor and visualize income and expenses.  
 
