@@ -12,13 +12,25 @@ const UserSchema = new Schema({
         required: true,
         unique: true,
     },
-    joinedDate: {
+    createdAt: {
         type: Date,
         default: Date.now
     },
     lastActice: {
         type: Date,
         default: Date.now
+    },
+    dataHash: {
+        type: String,
+        required: true
+    },
+    uuidHash: {
+        type: String,
+        required: true
+    },
+    dataKey: {
+        type: String,
+        required: true
     },
     finance: {
         type: Schema.Types.ObjectId,

@@ -1,7 +1,9 @@
 const express = require("express");
-const crypto = require("crypto");
+const UUID = require("uuid/v4");
 const User = require("../models/users");
 const router = express.Router();
+const security = require("../utils/encryptor");
+
 
 /**
  * GET from /api/user 
@@ -56,7 +58,6 @@ async function getFinance(request, response) {
  * 
  * @param {Module:express.IncomingMessage} request 
  * @param {Module.express.ServerResponse} response 
- * @returns {JSON} response of type { message, user? }
  */
 async function newUser(request, response) {
     const body = request.body;
@@ -70,20 +71,32 @@ async function newUser(request, response) {
     if (!body.password)
         return response.status(400).json({ message: "Missing password field" });
 
-    const passHash = crypto.createHash("sha512")
-        .update(body.password)
-        .digest();
+
+    const uuid = UUID();
+    const hasher = security.createHash("sha512")
+    const encUuid = security.encrypt(uuid, body.password);
+
+    const passHash = hasher.update(body.password).digest();
+    const uuidHash = hasher.update(uuid)
 
     const user = new User({
         username: body.username,
         email: body.email,
-        hash: passHash
+        datahash: passHash,
+        uuidHash,
+        datakey: encUuid
     });
 
     try {
         const createdUser = await user.save();
-        delete createdUser.hash;
-        response.status(201).json(createdUser);
+        response.status(201).json({
+            username: createdUser.username,
+            email: createdUser.email,
+            createdAt: createdUser.createdAt,
+            lastActive: createdUser.lastActive,
+            datakey: uuid,
+            finance: null
+        });
     } catch (err) {
         if (err.code === 11000)
             response.status(400).json({ message: "Account already exists" });

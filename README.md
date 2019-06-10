@@ -27,7 +27,7 @@ Returns an JSON of shape
     "user": {
         "username": "bobman1",
         "email": "bob@hotmail.com",
-        "joinedDate": "Date",
+        "createdAt": "Date",
         "lastActive": "Date",
         "finance": {
             "..."
@@ -99,7 +99,7 @@ Returns a JSON of shape
     "user": {
         "email": "bob@hotmail.com",
         "username": "bobman1",
-        "joinedAt": "Date",
+        "createdAt": "Date",
         "lastactive": "Date",
         "finance": {
             "..."
@@ -148,7 +148,7 @@ Returns a JSON of shape
     "user": {
         "email": "bob@hotmail.com",
         "username": "bobman1",
-        "joinedAt": "Date",
+        "createdAt": "Date",
         "lastActive": "Date",
         "finance": null
     }
