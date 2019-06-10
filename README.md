@@ -21,6 +21,7 @@ Returns an JSON of shape
 ```json
 {
     "message": "A message about the request, usually OK",
+    "datakey": "some-auto-generated-key",
     "user": {
         "username": "bobman1",
         "email": "bob@hotmail.com",
@@ -141,6 +142,7 @@ Returns a JSON of shape
 ```json
 {
     "message": "A message about the request, usually OK",
+    "datakey": "some-auto-generated-key",
     "user": {
         "email": "bob@hotmail.com",
         "username": "bobman1",
@@ -148,6 +150,12 @@ Returns a JSON of shape
         "lastActive": "Date",
         "finance": null
     }
+}
+```
+Or if the account already exists
+```json
+{
+    "message": "Account already exists"
 }
 ```
 

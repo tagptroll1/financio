@@ -86,7 +86,7 @@ async function newUser(request, response) {
         response.status(201).json(createdUser);
     } catch (err) {
         if (err.code === 11000)
-            response.status(400).json({ message: "User already exists" });
+            response.status(400).json({ message: "Account already exists" });
         else {
             response.status(400).json({ message: err });
         }
