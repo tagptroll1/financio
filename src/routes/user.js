@@ -77,7 +77,7 @@ async function newUser(request, response) {
     const encUuid = security.encrypt(uuid, body.password);
 
     const passHash = hasher.update(body.password).digest();
-    const uuidHash = hasher.update(uuid)
+    const uuidHash = hasher.update(uuid).digest();
 
     const user = new User({
         username: body.username,
